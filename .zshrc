@@ -104,3 +104,7 @@ function getvid() {
 function playvid() {
 	mplayer -vo caca $1 -really-quiet;
 }
+
+function streamvid() {
+	mplayer -vo caca -really-quiet <(youtube-dl -o - "ytsearch1:$1");
+}
