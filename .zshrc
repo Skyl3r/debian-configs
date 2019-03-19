@@ -101,19 +101,19 @@ eval `dircolors ~/.dircolors`
 ###################################
 
 # Gets a video with youtube-dl
-function getvid() {
+function video-get() {
 	youtube-dl "ytsearch1:$1";
 }
 
 # Plays a video in ASCII with mplayer
 # Press enter in mplayer to escape
-function playvid() {
+function video-play() {
 	mplayer -vo caca $1 -really-quiet;
 }
 
 # Streams a video from YT search
 # Press enter in mplayer to escape
-function streamvid() {
+function video-stream() {
 	mplayer -vo caca -really-quiet <(youtube-dl -o - "ytsearch1:$1" --no-progress);
 } 
 
