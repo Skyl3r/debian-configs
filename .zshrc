@@ -95,6 +95,11 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 eval `dircolors ~/.dircolors`
 
+
+###################################
+# youtube-dl and mplayer functions
+###################################
+
 # Gets a video with youtube-dl
 function getvid() {
 	youtube-dl "ytsearch1:$1";
@@ -110,4 +115,28 @@ function playvid() {
 # Press enter in mplayer to escape
 function streamvid() {
 	mplayer -vo caca -really-quiet <(youtube-dl -o - "ytsearch1:$1" --no-progress);
+} 
+
+#####################################
+# Tizonia functions
+#####################################
+
+# Plays a song by title from spotify
+function spotify-play-song() {
+	tizonia --spotify-track "$1";
+}
+
+# Plays an album by title from spotify
+function spotify-play-album() {
+	tizonia --spotify-album "$1";
+}
+
+# Plays an artist by title from spotify
+function spotify-play-artist() {
+	tizonia --spotify-artist "$1";
+}
+
+# Plays a playlist by title from spotify
+function spotify-play-playlist() {
+	tizonia --spotify-playlist "$1";
 }
