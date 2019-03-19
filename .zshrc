@@ -101,10 +101,13 @@ function getvid() {
 }
 
 # Plays a video in ASCII with mplayer
+# Press enter in mplayer to escape
 function playvid() {
 	mplayer -vo caca $1 -really-quiet;
 }
 
+# Streams a video from YT search
+# Press enter in mplayer to escape
 function streamvid() {
-	mplayer -vo caca -really-quiet <(youtube-dl -o - "ytsearch1:$1");
+	mplayer -vo caca -really-quiet <(youtube-dl -o - "ytsearch1:$1" --no-progress);
 }
