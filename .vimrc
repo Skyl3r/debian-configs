@@ -19,13 +19,13 @@ set noexpandtab
 "https://raw.githubusercontent.com/romainl/Apprentice/master/colors/apprentice.vim
 syntax enable
 let g:solarized_termcolors=256
-colorscheme apprentice
+" colorscheme apprentice
 
 "Set mapping to CTRL + O for opening NERD Tree
 map <C-o> :NERDTree<CR>			
+let g:ycm_global_ycm_extra_conf = '$USER/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 
 
-let g:ycm_always_populate_location_list=1	"Always look for database file for semantic code completion
 
 set colorcolumn=110							"Set line 110 to color column
 highlight ColorColumn ctermbg=darkgray

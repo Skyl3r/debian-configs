@@ -1,14 +1,16 @@
-#If you come from bash you might have to change your $PATH.
+# If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/skyl3r/.oh-my-zsh"
+export ZSH="/home/kpereksta/.oh-my-zsh"
+export ANDROID_HOME=/usr/lib/android-sdk
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="bullet-train"
+ZSH_THEME="agnoster"
+
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
@@ -93,50 +95,16 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-eval `dircolors ~/.dircolors`
 
+eval `dircolors ~/.solarized/dircolors`
 
-###################################
-# youtube-dl and mplayer functions
-###################################
-
-# Gets a video with youtube-dl
-function video-get() {
-	youtube-dl "ytsearch1:$1";
+function rdp () {
+	xfreerdp /u:DariFill\KevinP /v:$1
 }
 
-# Plays a video in ASCII with mplayer
-# Press enter in mplayer to escape
-function video-play() {
-	mplayer -vo caca $1 -really-quiet;
+function winssh() {
+	ssh $1.local -l "DariFill\KevinP"
 }
 
-# Streams a video from YT search
-# Press enter in mplayer to escape
-function video-stream() {
-	mplayer -vo caca -really-quiet <(youtube-dl -o - "ytsearch1:$1" --no-progress);
-} 
-
-#####################################
-# Tizonia functions
-#####################################
-
-# Plays a song by title from spotify
-function spotify-play-song() {
-	tizonia --spotify-track "$1";
-}
-
-# Plays an album by title from spotify
-function spotify-play-album() {
-	tizonia --spotify-album "$1";
-}
-
-# Plays an artist by title from spotify
-function spotify-play-artist() {
-	tizonia --spotify-artist "$1";
-}
-
-# Plays a playlist by title from spotify
-function spotify-play-playlist() {
-	tizonia --spotify-playlist "$1";
-}
+path+=('/home/kpereksta/.local/bin')
+export PATH
