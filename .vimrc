@@ -26,7 +26,7 @@ au BufNewFile,BufRead *.py
 au BufRead,BufNewFile *.py,*.pyw match BadWhitespace /\s\+$/
 
 " Python Virtual env support
-py << EOF
+py3 << EOF
 import os
 import sys
 if 'VIRTUAL_ENV' in os.environ:
