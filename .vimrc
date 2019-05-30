@@ -15,14 +15,15 @@ set noexpandtab
 
 "Python PEP8 indentation
 au BufNewFile,BufRead *.py
-	\ set tabstop=4
-	\ set softtabstop=4
-	\ set shiftwidth=4
-	\ set textwidth=79
-	\ set expandtab
-	\ set autoindent
-	\ set fileformat=unix
+	\set tabstop=4
+	\set softtabstop=4
+	\set shiftwidth=4
+	\set textwidth=79
+	\set expandtab
+	\set autoindent
+	\set fileformat=unix
 
+highlight BadWhitespace ctermbg=darkgray
 au BufRead,BufNewFile *.py,*.pyw match BadWhitespace /\s\+$/
 
 " Python Virtual env support
@@ -89,10 +90,9 @@ Plugin 'honza/vim-snippets'
 Plugin 'junegunn/fzf'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'pangloss/vim-javascript'
-Plugin 'flazz/vim-colorschemes'
 Plugin 'vim-scripts/indentpython.vim'
-Plugin 'vim-syntastic/syntastic'
 Plugin 'nvie/vim-flake8'
+Plugin 'numirias/semshi'
 
 " <=====================================
 " End of plugins list
