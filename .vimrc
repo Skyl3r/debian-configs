@@ -13,6 +13,37 @@ set softtabstop=4
 set shiftwidth=4
 set noexpandtab
 
+"Python PEP8 indentation
+au BufNewFile,BufRead *.py
+	\ set tabstop=4
+	\ set softtabstop=4
+	\ set shiftwidth=4
+	\ set textwidth=79
+	\ set expandtab
+	\ set autoindent
+	\ set fileformat=unix
+
+au BufRead,BufNewFile *.py,*.pyw match BadWhitespace /\s\+$/
+
+" Python Virtual env support
+py << EOF
+import os
+import sys
+if 'VIRTUAL_ENV' in os.environ:
+	project_base_dir = os.environ['VIRTUAL_ENV']
+	activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
+	execfile(activate_this, dict(__file__=activate_this))
+EOF
+
+" Python code highlighting
+let python_highlight_all=1
+syntax on
+
+"Code folding - mapped to space
+set foldmethod=indent
+set foldlevel=99
+nnoremap <space> za
+
 
 "Settings for solarized color scheme
 "Requires apprentice theme. Direct link:
@@ -24,6 +55,8 @@ let g:solarized_termcolors=256
 "Set mapping to CTRL + O for opening NERD Tree
 map <C-o> :NERDTree<CR>			
 let g:ycm_global_ycm_extra_conf = '$USER/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+let g:ycm_autoclose_preview_window_after_completion=1
+map <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 
 
@@ -57,6 +90,9 @@ Plugin 'junegunn/fzf'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'pangloss/vim-javascript'
 Plugin 'flazz/vim-colorschemes'
+Plugin 'vim-scripts/indentpython.vim'
+Plugin 'vim-syntastic/syntastic'
+Plugin 'nvie/vim-flake8'
 
 " <=====================================
 " End of plugins list
