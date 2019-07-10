@@ -98,13 +98,4 @@ source $ZSH/oh-my-zsh.sh
 
 eval `dircolors ~/.solarized/dircolors`
 
-function rdp () {
-	xfreerdp /u:DariFill\KevinP /v:$1
-}
-
-function winssh() {
-	ssh $1.local -l "DariFill\KevinP"
-}
-
-path+=('/home/kpereksta/.local/bin')
 export PATH
