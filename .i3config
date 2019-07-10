@@ -9,8 +9,7 @@
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
-exec_always --no-startup-id compton --config /home/kpereksta/.config/compton/compton
-exec --no-startup-id /home/kpereksta/.screenlayout/triple_monitor.sh
+exec_always --no-startup-id compton --config ~/.config/compton/compton
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id flashfocus
 
