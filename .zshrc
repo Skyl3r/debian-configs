@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/kpereksta/.oh-my-zsh"
+export ZSH="~/.oh-my-zsh"
 export ANDROID_HOME=/usr/lib/android-sdk
 
 # Set name of the theme to load --- if set to "random", it will
