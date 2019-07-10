@@ -1,5 +1,4 @@
 "Global Options
-
 set exrc			"Tells VIM to source .vimrc from working directory
 set secure			"Restricts some VIM usage in non default .vimrc files
 set number
@@ -51,7 +50,7 @@ nnoremap <space> za
 "https://raw.githubusercontent.com/romainl/Apprentice/master/colors/apprentice.vim
 syntax enable
 let g:solarized_termcolors=256
-" colorscheme apprentice
+colorscheme apprentice 
 
 "Set mapping to CTRL + O for opening NERD Tree
 map <C-o> :NERDTree<CR>			
@@ -78,7 +77,10 @@ Plugin 'VundleVim/Vundle.vim'
 " List of Plugins
 " <=====================================
 
-Plugin 'Valloric/YouCompleteMe'
+Plugin 'inside/vim-search-pulse'
+Plugin 'RRethy/vim-illuminate'
+Plugin 'lilydjwg/colorizer'
+Plugin 'luochen1990/rainbow'
 Plugin 'scrooloose/nerdtree'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'mattn/emmet-vim'
@@ -88,17 +90,26 @@ Plugin 'majutsushi/tagbar'
 Plugin 'vim-airline/vim-airline'
 Plugin 'honza/vim-snippets'
 Plugin 'junegunn/fzf'
+Plugin 'StanAngeloff/php.vim'
+Plugin 'phpactor/phpactor'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'pangloss/vim-javascript'
+Plugin 'flazz/vim-colorschemes'
 Plugin 'vim-scripts/indentpython.vim'
 Plugin 'nvie/vim-flake8'
-Plugin 'numirias/semshi'
+Plugin 'vim-python/python-syntax'
+Plugin 'shawncplus/phpcomplete.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 
-" <=====================================
 " End of plugins list
 " <=====================================
 call vundle#end()
 filetype plugin indent on
+set omnifunc=syntaxcomplete#Complete
+set tags=./Tags,Tags;
+let g:rainbow_active=1
+let g:vim_search_pulse_duration = 200
+
 
 " <====================================
 " Some Brief help for Vundle:
