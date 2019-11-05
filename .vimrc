@@ -23,27 +23,23 @@ au BufNewFile,BufRead *.py
 	\set fileformat=unix
 
 highlight BadWhitespace ctermbg=darkgray
-au BufRead,BufNewFile *.py,*.pyw match BadWhitespace /\s\+$/
-
-" Python Virtual env support
-py3 << EOF
-import os
-import sys
-if 'VIRTUAL_ENV' in os.environ:
-	project_base_dir = os.environ['VIRTUAL_ENV']
-	activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
-	execfile(activate_this, dict(__file__=activate_this))
-EOF
-
-" Python code highlighting
-let python_highlight_all=1
 syntax on
 
 "Code folding - mapped to space
 set foldmethod=indent
 set foldlevel=99
-nnoremap <space> za
 
+"Omnisharp Bindings
+nnoremap <space> za
+"Make Tab complete
+inoremap <expr> <Tab> pumvisible() ? '<C-n>' :
+\ getline('.')[col('.')-2] =~# '[[:alnum:].-_#$]' ? '<C-x><C-o>' : '<Tab>'
+"Make C-o C-u show usages
+nnoremap <C-o><C-u> :OmniSharpFindUsages<CR>
+"Make C-o C-d show definitions
+nnoremap <C-o><C-d> :OmniSharpGotoDefinition<CR>
+nnoremap <C-o><C-d><C-p> :OmniSharpPreviewDefinition<CR>
+nnoremap <C-o><C-r> :!dotnet run<CR>
 
 "Settings for solarized color scheme
 "Requires apprentice theme. Direct link:
@@ -54,11 +50,10 @@ colorscheme apprentice
 
 "Set mapping to CTRL + O for opening NERD Tree
 map <C-o> :NERDTree<CR>			
-let g:ycm_global_ycm_extra_conf = '$USER/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 let g:ycm_autoclose_preview_window_after_completion=1
 map <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
-
+let g:OmniSharp_server_stdio = 1
 
 set colorcolumn=110							"Set line 110 to color column
 highlight ColorColumn ctermbg=darkgray
@@ -100,6 +95,8 @@ Plugin 'nvie/vim-flake8'
 Plugin 'vim-python/python-syntax'
 Plugin 'shawncplus/phpcomplete.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'dart-lang/dart-vim-plugin'
+Plugin 'OmniSharp/omnisharp-vim'
 
 " End of plugins list
 " <=====================================
