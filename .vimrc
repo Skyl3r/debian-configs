@@ -12,16 +12,6 @@ set softtabstop=4
 set shiftwidth=4
 set noexpandtab
 
-"Python PEP8 indentation
-au BufNewFile,BufRead *.py
-	\set tabstop=4
-	\set softtabstop=4
-	\set shiftwidth=4
-	\set textwidth=79
-	\set expandtab
-	\set autoindent
-	\set fileformat=unix
-
 highlight BadWhitespace ctermbg=darkgray
 syntax on
 
@@ -29,7 +19,17 @@ syntax on
 set foldmethod=indent
 set foldlevel=99
 
+"""""""""""""""""""""""""""""""""""""""""""
+"vim-airline settings
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '>'
+let g:airline_theme='term'
+"""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""""""""""""""
 "Omnisharp Bindings
+let g:OmniSharp_server_stdio = 1
 nnoremap <space> za
 "Make Tab complete
 inoremap <expr> <Tab> pumvisible() ? '<C-n>' :
@@ -40,6 +40,8 @@ nnoremap <C-o><C-u> :OmniSharpFindUsages<CR>
 nnoremap <C-o><C-d> :OmniSharpGotoDefinition<CR>
 nnoremap <C-o><C-d><C-p> :OmniSharpPreviewDefinition<CR>
 nnoremap <C-o><C-r> :!dotnet run<CR>
+""""""""""""""""""""""""""""""""""""""""""
+
 
 "Settings for solarized color scheme
 "Requires apprentice theme. Direct link:
@@ -48,12 +50,36 @@ syntax enable
 let g:solarized_termcolors=256
 colorscheme apprentice 
 
+""""""""""""""""""""""""""""""""""""""""""
 "Set mapping to CTRL + O for opening NERD Tree
-map <C-o> :NERDTree<CR>			
+map <C-o> :NERDTreeToggle<CR>			
 let g:ycm_autoclose_preview_window_after_completion=1
-map <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
+""""""""""""""""""""""""""""""""""""""""""
 
-let g:OmniSharp_server_stdio = 1
+""""""""""""""""""""""""""""""""""""""""""
+"Tagbar
+nmap <F8> :TagbarToggle<CR>
+"""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""""""""""""""
+"vim-easymotion
+"" <Leader>f{char} to move to {char}
+map  <Leader>f <Plug>(easymotion-bd-f)
+nmap <Leader>f <Plug>(easymotion-overwin-f)
+
+" s{char}{char} to move to {char}{char}
+nmap s <Plug>(easymotion-overwin-f2)
+
+" Move to line
+map <Leader>L <Plug>(easymotion-bd-jk)
+nmap <Leader>L <Plug>(easymotion-overwin-line)
+
+" Move to word
+map  <Leader>w <Plug>(easymotion-bd-w)
+nmap <Leader>w <Plug>(easymotion-overwin-w)
+""""""""""""""""""""""""""""""""""""""""""
+
+
 
 set colorcolumn=110							"Set line 110 to color column
 highlight ColorColumn ctermbg=darkgray
@@ -70,7 +96,7 @@ Plugin 'VundleVim/Vundle.vim'
 
 " <=====================================
 " List of Plugins
-" <=====================================
+" =====================================
 
 Plugin 'inside/vim-search-pulse'
 Plugin 'RRethy/vim-illuminate'
@@ -83,19 +109,15 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-surround'
 Plugin 'majutsushi/tagbar'
 Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'honza/vim-snippets'
 Plugin 'junegunn/fzf'
-Plugin 'StanAngeloff/php.vim'
-Plugin 'phpactor/phpactor'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'pangloss/vim-javascript'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'vim-scripts/indentpython.vim'
 Plugin 'nvie/vim-flake8'
-Plugin 'vim-python/python-syntax'
-Plugin 'shawncplus/phpcomplete.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'dart-lang/dart-vim-plugin'
 Plugin 'OmniSharp/omnisharp-vim'
 
 " End of plugins list
