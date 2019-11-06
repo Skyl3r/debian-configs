@@ -2,6 +2,7 @@
 set exrc			"Tells VIM to source .vimrc from working directory
 set secure			"Restricts some VIM usage in non default .vimrc files
 set number
+set cursorline
 
 set laststatus=2	"Always shows the status bar
 set splitbelow		"Set default split pane to below
@@ -14,6 +15,8 @@ set noexpandtab
 
 highlight BadWhitespace ctermbg=darkgray
 syntax on
+
+nnoremap gb :ls<CR>:b<Space>
 
 "Code folding - mapped to space
 set foldmethod=indent
@@ -94,6 +97,9 @@ let g:syntastic_check_on_wq = 0
 
 set colorcolumn=110							"Set line 110 to color column
 highlight ColorColumn ctermbg=darkgray
+
+map <C-U> <C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y>
+map <C-D> <C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E>
 
 
 "I use Vundle from gmarik/Vundle.vim
