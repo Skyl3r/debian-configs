@@ -24,7 +24,7 @@ set foldlevel=99
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '>'
-let g:airline_theme='term'
+let g:airline_theme='badwolf'
 """""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""
@@ -48,8 +48,8 @@ nnoremap <C-o><C-r> :!dotnet run<CR>
 "https://raw.githubusercontent.com/romainl/Apprentice/master/colors/apprentice.vim
 syntax enable
 let g:solarized_termcolors=256
-colorscheme apprentice 
-
+colorscheme badwolf
+let g:badwolf_tabline = 3
 """"""""""""""""""""""""""""""""""""""""""
 "Set mapping to CTRL + O for opening NERD Tree
 map <C-o> :NERDTreeToggle<CR>			
@@ -57,7 +57,7 @@ let g:ycm_autoclose_preview_window_after_completion=1
 """"""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""
-"Tagbar
+"tagbar
 nmap <F8> :TagbarToggle<CR>
 """""""""""""""""""""""""""""""""""""""""""
 
@@ -79,6 +79,17 @@ map  <Leader>w <Plug>(easymotion-bd-w)
 nmap <Leader>w <Plug>(easymotion-overwin-w)
 """"""""""""""""""""""""""""""""""""""""""
 
+"""""""""""""""""""""""""""""""""""""""""
+"Syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+""""""""""""""""""""""""""""""""""""""""""
 
 
 set colorcolumn=110							"Set line 110 to color column
@@ -99,24 +110,25 @@ Plugin 'VundleVim/Vundle.vim'
 " =====================================
 
 Plugin 'inside/vim-search-pulse'
+Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'sjl/badwolf'
 Plugin 'RRethy/vim-illuminate'
 Plugin 'lilydjwg/colorizer'
 Plugin 'luochen1990/rainbow'
+Plugin 'tomtom/tcomment_vim'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'scrooloose/nerdtree'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'mattn/emmet-vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-surround'
 Plugin 'majutsushi/tagbar'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
+Plugin 'itchyny/lightline.vim'
 Plugin 'honza/vim-snippets'
 Plugin 'junegunn/fzf'
 Plugin 'easymotion/vim-easymotion'
-Plugin 'pangloss/vim-javascript'
 Plugin 'flazz/vim-colorschemes'
-Plugin 'vim-scripts/indentpython.vim'
-Plugin 'nvie/vim-flake8'
+Plugin 'vim-syntastic/syntastic'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'OmniSharp/omnisharp-vim'
 
