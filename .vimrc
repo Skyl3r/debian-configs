@@ -22,6 +22,31 @@ nnoremap gb :ls<CR>:b<Space>
 set foldmethod=indent
 set foldlevel=99
 
+"Settings for solarized color scheme
+"Requires apprentice theme. Direct link:
+"https://raw.githubusercontent.com/romainl/Apprentice/master/colors/apprentice.vim
+syntax enable
+let g:solarized_termcolors=256
+colorscheme badwolf
+let g:badwolf_tabline = 3
+
+set colorcolumn=110							"Set line 110 to color column
+highlight ColorColumn ctermbg=darkgray
+
+map <C-U> <C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y>
+map <C-D> <C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E>
+
+
+""""""""""""""""""""""""""""""""""""""""""
+"ZoomWin Settings
+map <C-w>z :ZoomWin<CR>
+""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""""""""""""""
+"vim-search settings
+let g:vim_search_pulse_duration = 200
+""""""""""""""""""""""""""""""""""""""""""
+
 """""""""""""""""""""""""""""""""""""""""""
 "vim-airline settings
 let g:airline#extensions#tabline#enabled = 1
@@ -33,26 +58,22 @@ let g:airline_theme='badwolf'
 """"""""""""""""""""""""""""""""""""""""""
 "Omnisharp Bindings
 let g:OmniSharp_server_stdio = 1
+set omnifunc=syntaxcomplete#Complete
 nnoremap <space> za
 "Make Tab complete
 inoremap <expr> <Tab> pumvisible() ? '<C-n>' :
 \ getline('.')[col('.')-2] =~# '[[:alnum:].-_#$]' ? '<C-x><C-o>' : '<Tab>'
 "Make C-o C-u show usages
-nnoremap <C-o><C-u> :OmniSharpFindUsages<CR>
+nnoremap <C-o><C-e> :OmniSharpFindUsages<CR>
 "Make C-o C-d show definitions
 nnoremap <C-o><C-d> :OmniSharpGotoDefinition<CR>
 nnoremap <C-o><C-d><C-p> :OmniSharpPreviewDefinition<CR>
 nnoremap <C-o><C-r> :!dotnet run<CR>
+nnoremap <C-o><C-u> :OmniSharpFixUsings<CR>
+nnoremap <C-o><C-f> :OmniSharpCodeFormat<CR>
 """"""""""""""""""""""""""""""""""""""""""
 
 
-"Settings for solarized color scheme
-"Requires apprentice theme. Direct link:
-"https://raw.githubusercontent.com/romainl/Apprentice/master/colors/apprentice.vim
-syntax enable
-let g:solarized_termcolors=256
-colorscheme badwolf
-let g:badwolf_tabline = 3
 """"""""""""""""""""""""""""""""""""""""""
 "Set mapping to CTRL + O for opening NERD Tree
 map <C-o> :NERDTreeToggle<CR>			
@@ -95,12 +116,6 @@ let g:syntastic_check_on_wq = 0
 """"""""""""""""""""""""""""""""""""""""""
 
 
-set colorcolumn=110							"Set line 110 to color column
-highlight ColorColumn ctermbg=darkgray
-
-map <C-U> <C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y>
-map <C-D> <C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E>
-
 
 "I use Vundle from gmarik/Vundle.vim
 "It will be placed in ~/.vim/bundle/Vundle.vim
@@ -117,6 +132,7 @@ Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'inside/vim-search-pulse'
 Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'vim-scripts/ZoomWin'
 Plugin 'sjl/badwolf'
 Plugin 'RRethy/vim-illuminate'
 Plugin 'lilydjwg/colorizer'
@@ -142,10 +158,8 @@ Plugin 'OmniSharp/omnisharp-vim'
 " <=====================================
 call vundle#end()
 filetype plugin indent on
-set omnifunc=syntaxcomplete#Complete
 set tags=./Tags,Tags;
 let g:rainbow_active=1
-let g:vim_search_pulse_duration = 200
 
 
 " <====================================
