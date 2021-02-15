@@ -1,4 +1,7 @@
 #!/bin/bash
+# Repo for unstable
+# Currently only contains i3-gaps
+
 
 echo "Adding gpg key."
 wget -O - http://deb.skyl3r.com/debian/conf/deb.skyl3r.gpg.key | sudo apt-key add -
